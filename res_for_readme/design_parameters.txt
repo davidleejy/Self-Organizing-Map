@@ -1,0 +1,46 @@
+\clearpage 
+
+\begin{itemize}
+
+\item SOM lattice is 10x10.
+
+\item 1000 total iterations for training.
+
+\item Learning rate, $\eta(i)$ is:
+
+\[  \eta(i) = n_{0} exp(-i / \tau_2) , \quad  i \in [1,1000] \]
+
+where $i$ means the $i$-th iteration, $\eta(0)$ is the initial learning rate which is set to 0.1, and $\tau_2$ is the time constant which is set to the number of total iterations, $1000$.
+
+\item Neighbourhood function, $h_{j,k}(i)$ is:
+
+\[ h_{j,k}(i) = exp( - \frac{d_{j,k}^2}{2\sigma(i)^2}) \]
+$d_{j,k}$ is the distance between neuron $j$ and winner neuron $k$ .\\
+$\sigma(i)$ is the effective width at iteration $i$.
+
+\[ d_{j,k} = || \begin{bmatrix}
+           j_{r} \\
+           j_{c} \\
+         \end{bmatrix} - \begin{bmatrix}
+           k_{r} \\
+           k_{c} \\
+         \end{bmatrix} ||_2 \]
+$j_{r}$ and $j_{c}$ refer to a neuron $j$'s row and column indices respectively.  Neurons in a SOM reside in a lattice. In the design of this SOM, 10x10 lattice is used. A 10x10 lattice contains a $100$ neurons.
+
+\[  \sigma(i) = \sigma_{0} exp(-i / \tau_{1}) , \quad  i \in [1,1000] \]
+$\sigma_{0}$ is the effective width which is set to be $\frac{\sqrt{C^2 + R^2}}{2}$ where $C$ and $R$ refer to the number of columns and number of rows of the SOM's lattice. In the design of this SOM, $C$ and $R$ are set to $10$.\\
+$\tau_{1}$ is a time constant.  $\tau_{1} =  \frac{\text{total iterations}}{\log{\sigma_{0}}}$. Total iterations is set to $1000$.
+
+
+\item During training, the winner neuron satisfies:
+
+\[ \min\limits_{k} || \vec{x}_{\text{input}} - \vec{w}_{k}||_{2}  \]
+
+\item During training, all neurons (all weights) are updated after the winner neuron is determined. Updating formula:
+
+\[ \vec{w}_{j} := \vec{w}_{j} + \eta (i) \cdot h_{j,k}(i) \cdot [ \vec{x}_{\text{input}} - \vec{w}_{k}  ] \]
+$i$ means the $i$-th iteration. $\vec{w}_{j}$ is the weight vector of neuron $j$.
+
+\end{itemize}
+
+\clearpage
