@@ -15,12 +15,13 @@ There are no additional/third-party/external dependencies. MATLAB's Neural Netwo
 ![test data images](./res_for_readme/test_data_images.jpg)
 
 - **som\_wts\_1.mat** and **som\_labels\_1.mat** are the weights and neuron labels for an SOM I had trained using train\_SOM.m.
+<p>
 ![trained SOM lattice](./res_for_readme/trained_som_lattice.jpg)
 <p>
 - **train\_SOM.m** trains an SOM. An SOM is trained with images from SOM\_database.mat by default.
 
-- **test\_SOM.m** tests an SOM. My saved SOM is tested by default.
-![Output from testing an SOM](./res_for_readme/test_som_output.jpg)
+- **test\_SOM.m** tests an SOM. My saved SOM is tested by default. The following screenshot shows the output of test\_SOM.m.
+![Output from testing an SOM](./res_for_readme/test_SOM_output.jpg)
 <p>
 - **visualize\_SOM\_lattice.m** visualizes a SOM's lattice like in the picture above. My saved SOM's lattice is visualized by default.
 
